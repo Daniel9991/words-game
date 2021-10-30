@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import HiddenWord from './components/HiddenWord';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const _words = [
+    {word: 'apple', hidder: true},
+    {word: 'street', hidder: true},
+    {word: 'plane', hidden: true},
+    {word: 'explosion', hidden: true},
+    {word: 'airport', hidden: true},
+    {word: 'fruit', hidden: true},
+    {word: 'battle', hidden: true}
+  ]
+  const [words, setWords] = useState(_words);
+
+  return <>
+  <ul style={{
+    width: 'fit-content',
+    margin: '0 auto 50px'
+  }}>
+    { words.map(word => <HiddenWord word={word} />) }
+  </ul>;
+  <ul style={{
+    width: 'fit-content',
+    margin: '0 auto 50px'
+  }}>
+    
+  </ul>
+  </>
 }
 
 export default App;
