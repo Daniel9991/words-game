@@ -1,12 +1,12 @@
 import '../css/HiddenWord.css';
 
-const HiddenWord = ({ word }) => {
+const HiddenWord = ({ word, hidden }) => {
 
 	return <div className="hidden-word" onClick={(ev) => {
 		ev.target.style.backgroundColor = 'black';
-		word.hidden = false;
+		hidden = false;
 		}}>
-		{ word.word }
+		{ word }
 	</div>;
 }
 

@@ -1,0 +1,21 @@
+.letter-box{
+	padding: 0 40px;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	margin: 10px;
+	list-style-type: none;
+	border-radius: 10px;
+	background-color: rgb(173, 159, 199);
+}
+
+.letter-box h3{
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+.letter-box p{
+	font-weight: bold;
+}
