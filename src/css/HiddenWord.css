@@ -3,10 +3,11 @@
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgb(173, 189, 240);
+	background-color: #adbdf0;
 	color: rgb(173, 189, 240);
 	width: fit-content;
 	border-radius: 10px;
 	margin: 10px;
 	cursor: pointer;
+	font-size: 1.3em;
 }

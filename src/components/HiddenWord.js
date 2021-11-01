@@ -1,11 +1,14 @@
 import '../css/HiddenWord.css';
 
-const HiddenWord = ({ word, hidden }) => {
+const HiddenWord = ({ word, hidden, updateWordsState }) => {
 
-	return <div className="hidden-word" onClick={(ev) => {
-		ev.target.style.backgroundColor = 'black';
-		hidden = false;
-		}}>
+	const wordClicked = ev => {
+		updateWordsState(word);
+	};
+
+	return <div className="hidden-word"
+				onClick={ hidden ? wordClicked : null }
+				style={{backgroundColor: hidden ? '#adbdf0' : 'black'}}>
 		{ word }
 	</div>;
 }
