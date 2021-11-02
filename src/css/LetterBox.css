@@ -1,5 +1,4 @@
 .letter-box{
-	padding: 0 40px;
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: center;
@@ -8,15 +7,24 @@
 	margin: 10px;
 	list-style-type: none;
 	border-radius: 10px;
-	background-color: rgb(204, 209, 218);
 }
 
 .letter-box h3{
+	border-radius: 10px 10px 0 0;
 	font-size: 1.5em;
-	margin-bottom: 10px;
+	padding: 15px 25px;
+	background-color: #67688e;
+	color: white;
+	font-weight: bold;
 }
 
 .letter-box p{
 	font-weight: bold;
-	color: #555;
+	color: rgb(233, 229, 192);
+	background-color: #4d4e6a;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	border-radius: 0 0 10px 10px;
+	font-size: 1.2em;
 }

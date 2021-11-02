@@ -8,7 +8,7 @@ const HiddenWord = ({ word, hidden, updateWordsState }) => {
 
 	return <div className="hidden-word"
 				onClick={ hidden ? wordClicked : null }
-				style={{backgroundColor: hidden ? '#adbdf0' : 'black'}}>
+				style={{color: hidden ? '#3e3c3e' : 'white'}}>
 		{ word }
 	</div>;
 }
