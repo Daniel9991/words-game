@@ -1,21 +1,45 @@
 import { useState } from "react";
 import HiddenWord from './components/HiddenWord';
 import LetterBox from './components/LetterBox';
+import './App.css';
+//import WordInput from "./components/WordInput";
 
 
 const App = () => {
 
 
-  const baseWords = {
-    //{word: hidden}
-    apple: true,
-    street: true,
-    plane: true,
-    explosion: true,
-    airport: true,
-    fruit: true,
-    battle: true
-  }
+  const baseWords = [
+    {
+      word: 'apple',
+      hidden: true,
+      description: 'Red fruit that hangs from trees'
+    },
+    {
+      word: 'street',
+      hidden: true,
+      description: 'Pavimented road'
+    },
+    {
+      word: 'explosion',
+      hidden: true,
+      description: 'Event caused by a bomb when it detonates'
+    },
+    {
+      word: 'airport',
+      hidden: true,
+      description: 'Port for aircraft'
+    },
+    {
+      word: 'fruit',
+      hidden: true,
+      description: 'Part of the plant that is usually sweet and consumed by animals'
+    },
+    {
+      word: 'battle',
+      hidden: true,
+      description: 'Encounter between two or more armies'
+    }
+  ]
 
 
   const [words, setWords] = useState(baseWords);
@@ -36,7 +60,15 @@ const App = () => {
 
   const wordClicked = clickedWord => {
 
-    setWords(Object.assign({}, words, {[clickedWord]: false}));
+    setWords(words.map(w => {
+      if(w.word === clickedWord){
+        w.hidden = false;
+        return w;
+      }
+      else{
+        return w;
+      }
+    }));
 
     const wordLetters = letterCountInWord(clickedWord);
 
@@ -52,21 +84,26 @@ const App = () => {
     setLetters(Object.assign({}, letters, wordLetters))
   }
 
+/*
+  const handleAddWord = word => {
+    setWords(Object.assign({}, words, {[word]: true}));
+  }
+*/
 
-  return <>
+  return <div class="container">
   <ul style={{
     width: 'fit-content',
-    margin: '0 auto 50px'
+    margin: '100px auto 50px'
   }}>
-    { Object.keys(words).map((w, index) => <HiddenWord word={w} hidden={words[w]} updateWordsState={wordClicked} key={index} />) }
-  </ul>;
+    { words.map((w, index) => <HiddenWord word={w.word} description={w.description} hidden={w.hidden} updateWordsState={wordClicked} key={index} />) }
+  </ul>
   <ul style={{
     width: 'fit-content',
-    margin: '0 auto 50px'
+    margin: '0 auto'
   }}>
     { Object.keys(letters).sort().map((l, index) => <LetterBox letter={l} count={letters[l]} key={index} />) }
   </ul>
-  </>
+  </div>
 }
 
 
